@@ -20,7 +20,15 @@ zip -r "${zip_file}" sample_lib ${files}
 # Copy the zip file in S3 bucket
 /usr/local/bin/aws s3 cp ${zip_file} s3://${bucket_name}/${key_name}
 
-# Create a Lambda Function
+# /usr/local/bin/aws lambda get-function \
+#     --function-name  "${lambda_name}"
+
+
+# /usr/local/bin/aws lambda update-function-code \
+#    --function-name "${lambda_name}"  \
+#    --zip-file "fileb://${zip_file}" \
+#    --publish
+
 /usr/local/bin/aws lambda create-function \
    --region "${region}" \
    --function-name "${lambda_name}"  \
@@ -29,4 +37,6 @@ zip -r "${zip_file}" sample_lib ${files}
    --handler "${handler}.lambda_handler" \
    --runtime python3.9 \
    --timeout 3 \
-   --memory-size 128
+   --memory-size 128 
+
+

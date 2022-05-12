@@ -3,7 +3,7 @@ Use AWS CLI to push/deploy the lambda function in AWS Cloud after local testing.
 
 
 ## Notes
-- Config file (config.ini) is in the same directory
+- Create a config file (config.ini) in the same directory with below
 ```ini
 role_arn="your-own-lambda-role-arn"   
 bucket_name="your-own-bucket-name"   
